@@ -8,7 +8,7 @@ QT       += core gui
 QT       += multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = demo
+TARGET = music_player
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use

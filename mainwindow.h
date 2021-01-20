@@ -27,7 +27,7 @@ private slots:
     void on_pB_stop_clicked();
 
     void on_Slider_sliderMoved(int position);
-
+    void onPositionChanged(qint64);
 private:
     Ui::MainWindow *ui;
 };

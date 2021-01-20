@@ -14,6 +14,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -32,6 +34,12 @@ public:
     QPushButton *pB_pause;
     QPushButton *pB_stop;
     QSlider *Slider;
+    QLineEdit *lineEdit1;
+    QLineEdit *lineEdit2;
+    QLabel *label;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLineEdit *lineEdit3;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -40,7 +48,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(500, 457);
+        MainWindow->resize(688, 529);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pB_play = new QPushButton(centralWidget);
@@ -56,10 +64,28 @@ public:
         Slider->setObjectName(QStringLiteral("Slider"));
         Slider->setGeometry(QRect(80, 150, 241, 22));
         Slider->setOrientation(Qt::Horizontal);
+        lineEdit1 = new QLineEdit(centralWidget);
+        lineEdit1->setObjectName(QStringLiteral("lineEdit1"));
+        lineEdit1->setGeometry(QRect(440, 140, 113, 20));
+        lineEdit2 = new QLineEdit(centralWidget);
+        lineEdit2->setObjectName(QStringLiteral("lineEdit2"));
+        lineEdit2->setGeometry(QRect(440, 180, 113, 20));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(560, 140, 54, 12));
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(560, 180, 54, 12));
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(560, 230, 54, 12));
+        lineEdit3 = new QLineEdit(centralWidget);
+        lineEdit3->setObjectName(QStringLiteral("lineEdit3"));
+        lineEdit3->setGeometry(QRect(440, 220, 113, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 500, 23));
+        menuBar->setGeometry(QRect(0, 0, 688, 23));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -79,6 +105,9 @@ public:
         pB_play->setText(QApplication::translate("MainWindow", "play", Q_NULLPTR));
         pB_pause->setText(QApplication::translate("MainWindow", "pause", Q_NULLPTR));
         pB_stop->setText(QApplication::translate("MainWindow", "stop", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        label_3->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
     } // retranslateUi
 
 };

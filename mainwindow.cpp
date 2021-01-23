@@ -65,7 +65,10 @@ ui->lineEdit1->setText(QString::number(all_time));
 //进度条主动动作
 void MainWindow::on_Slider_sliderMoved(int position)
 {
+    position*=1000;
+    position+=now_time_s;
     player->setPosition(position);
+
 }
 
 //进度条被动动作

@@ -135,6 +135,32 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="lbl_all_time">
+    <property name="geometry">
+     <rect>
+      <x>343</x>
+      <y>141</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>all_time</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_now_time">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>170</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>now_time</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

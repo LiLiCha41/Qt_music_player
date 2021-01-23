@@ -40,6 +40,8 @@ public:
     QLabel *label_2;
     QLabel *label_3;
     QLineEdit *lineEdit3;
+    QLabel *lbl_all_time;
+    QLabel *lbl_now_time;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -82,6 +84,12 @@ public:
         lineEdit3 = new QLineEdit(centralWidget);
         lineEdit3->setObjectName(QStringLiteral("lineEdit3"));
         lineEdit3->setGeometry(QRect(440, 220, 113, 20));
+        lbl_all_time = new QLabel(centralWidget);
+        lbl_all_time->setObjectName(QStringLiteral("lbl_all_time"));
+        lbl_all_time->setGeometry(QRect(343, 141, 71, 31));
+        lbl_now_time = new QLabel(centralWidget);
+        lbl_now_time->setObjectName(QStringLiteral("lbl_now_time"));
+        lbl_now_time->setGeometry(QRect(180, 170, 71, 31));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -108,6 +116,8 @@ public:
         label->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
         label_3->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        lbl_all_time->setText(QApplication::translate("MainWindow", "all_time", Q_NULLPTR));
+        lbl_now_time->setText(QApplication::translate("MainWindow", "now_time", Q_NULLPTR));
     } // retranslateUi
 
 };

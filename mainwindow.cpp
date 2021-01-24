@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QtCore/QCoreApplication>
 #include <QtMultimedia/QMediaPlayer>
+#include <QMediaPlaylist>
 
 QMediaPlayer * player = new QMediaPlayer;
 
@@ -14,16 +15,32 @@ static int now_time = 0;
 static int now_time_h = 0;
 static int now_time_m = 0;
 static int now_time_s = 0;
+
+
+static int Volume =50;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    player->setMedia(QUrl::fromLocalFile("./music//最初的梦想.mp3"));
+    //player->setMedia(QUrl::fromLocalFile("./music//最初的梦想.mp3"));
     //进度条被动槽
     connect(player,SIGNAL(positionChanged(qint64)),this,SLOT(onPositionChanged(qint64)));
     //总时间获取槽，只执行一次
     connect(player,&QMediaPlayer::durationChanged,this,&MainWindow::updatePosition);
     ui->setupUi(this);
+
+
+    playlist = new QMediaPlaylist;
+        playlist->addMedia(QUrl::fromLocalFile("./music//最初的梦想.mp3"));
+        playlist->addMedia(QUrl::fromLocalFile("./music//燕归巢-张靓颖_张杰.mp3"));
+        playlist->addMedia(QUrl::fromLocalFile("./music//张碧晨、赵丽颖 - 望.mp3"));
+        playlist->setCurrentIndex(0);
+        playlist->setPlaybackMode(QMediaPlaylist::Loop);
+        player->setPlaylist(playlist);
+
+
+
 }
 
 MainWindow::~MainWindow()
@@ -34,7 +51,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pB_play_clicked()
 {
 player->play();
-player->setVolume(50);
+player->setVolume(Volume);
 
 /*音乐总时间显示*/
 all_time_h = all_time/3600;
@@ -86,4 +103,30 @@ void MainWindow::onPositionChanged(qint64 position)
 
     ui->Slider->setValue(now_time);
     ui->lineEdit3->setText(QString::number(now_time));
+}
+
+
+void MainWindow::on_pB_up_clicked()
+{
+    Volume+=5;
+    player->setVolume(Volume);
+
+}
+
+void MainWindow::on_pB_down_clicked()
+{
+    Volume-=5;
+    player->setVolume(Volume);
+
+}
+
+void MainWindow::on_pB_last_clicked()
+{
+
+playlist->previous();
+}
+
+void MainWindow::on_pB_next_clicked()
+{
+playlist->next();
 }
